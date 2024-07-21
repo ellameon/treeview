@@ -1,7 +1,7 @@
 import { getEntity } from "../../transport";
 import { useDispatch } from "react-redux";
 import { setEntityToStore, setEntityToStoreFromLocalStorage } from "../redux/modules/entity/entity.action";
-import { createLocalStorageEntityDTO } from "../redux/utils";
+import { createLocalStorageEntityDTO } from "../redux";
 import _ from "lodash";
 import { StoreElement } from "../../types";
 import { useToggleIsLoading } from "./useToggleIsLoading";
@@ -24,7 +24,7 @@ export const useInitializeStore = () => {
     } else {
       dispatch(setEntityToStore(result))
     }
-    // toggleIsLoading(false)
+    toggleIsLoading(false)
   })
     .catch((e) => {
       toggleIsError(e)

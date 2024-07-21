@@ -8,7 +8,7 @@ export const useToggleIsLoading = () => {
     dispatch(toggleEntityIsLoading(payload))
   }
 
- return {
+  return {
     toggleIsLoading
- }
+  }
 }
