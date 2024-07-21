@@ -14,7 +14,7 @@ export const TreeView = () => {
         {entities && (
           <div className={styles.list}>
             {entities.map(element => (
-              <TreeViewElement element={element} key={element.id} />
+              <TreeViewElement element={element} key={element.id}/>
             ))}
           </div>
         )}
