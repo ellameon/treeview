@@ -6,4 +6,4 @@ export type EntityStoreElement = {
 }
 
 
-export type EntityStore = Array<EntityStoreElement> | []
+export type EntityStore = {entities: Array<EntityStoreElement> | [ ] }

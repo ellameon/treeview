@@ -1,28 +1,25 @@
 import { EntityStore, EntityStoreElement } from "../../../types";
 
-export function toggleIsElementOpen (state: EntityStore, id: number) {
-
+export function toggleIsElementOpen(state: EntityStore, id: number) {
   const toggleIsOpen = (entity: EntityStoreElement): EntityStoreElement => {
     if (entity.id === id) {
       return {
-        id: entity.id,
-        name: entity.name,
+        ...entity,
         isOpen: !entity.isOpen,
-        children: entity.children?.map(element => toggleIsOpen(element))
-      }
-    }
-    else return entity
-  }
-
-  return state.map(stateElement => {
-    if (stateElement.id === id) {
+        children: entity.children ? entity.children.map(toggleIsOpen) : []
+      };
+    } else if (entity.children) {
       return {
-        id: stateElement.id,
-        name: stateElement.name,
-        isOpen: !stateElement.isOpen,
-        children: stateElement.children?.map(element => toggleIsOpen(element))
-      }
+        ...entity,
+        children: entity.children.map(toggleIsOpen)
+      };
+    } else {
+      return entity;
     }
-    else return stateElement
-  })
+  };
+
+  return {
+    ...state,
+    entities: state.entities.map(toggleIsOpen)
+  };
 }
