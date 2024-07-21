@@ -7,16 +7,16 @@ export function toggleIsElementOpen(state: EntityStore, id: number) {
         ...entity,
         isOpen: !entity.isOpen,
         children: entity.children ? entity.children.map(toggleIsOpen) : []
-      };
+      }
     } else if (entity.children) {
       return {
         ...entity,
         children: entity.children.map(toggleIsOpen)
-      };
+      }
     } else {
-      return entity;
+      return entity
     }
-  };
+  }
 
   return {
     ...state,

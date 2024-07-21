@@ -33,7 +33,7 @@ const mokData = [
   }
 ]
 
-export async function getEntity (): Promise<EntityDTO> {
+export async function getEntity(): Promise<EntityDTO> {
   const entities: EntityDTO = []
 
   //тут получаем данные с бека, но в данном случае есть моковые данные

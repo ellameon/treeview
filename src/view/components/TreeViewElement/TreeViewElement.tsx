@@ -16,7 +16,7 @@ export const TreeViewElement = ({element}: Props) => {
     toggleElementIsOpen(id);
   };
 
-  //сделано для правильной работы анимации закрытия списка
+  // сделано для правильной работы анимации закрытия списка
   setTimeout(() => {
     setIsOpenAllowed(true)
   }, 500)
@@ -33,20 +33,18 @@ export const TreeViewElement = ({element}: Props) => {
         </div>
       </div>
       <div className={`${element.isOpen ? styles.listOpen : styles.list}`}>
-        {isOpenAllowed && <>
-          {element.children && element.children.length > 0
-            ?
-            element.children.map(child => (
-              <TreeViewElement key={child.id} element={child}/>
-            ))
-
-            :
-            <div className={styles.noData}>
-              Нет вложенных элементов
-            </div>
-          }
-        </>}
-
+        {isOpenAllowed &&
+          <>
+            {element.children && element.children.length > 0
+              ? element.children.map(child => (
+                <TreeViewElement key={child.id} element={child}/>
+              ))
+              : <div className={styles.noData}>
+                Нет вложенных элементов
+              </div>
+            }
+          </>
+        }
       </div>
     </div>
   );

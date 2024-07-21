@@ -1,23 +1,23 @@
 .root {
-  display: flex;
-  justify-content: center;
-  padding: 80px;
-  height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 80px;
+    height: 100vh;
 }
 
 .content {
-  padding: 20px;
-  min-width: 1000px;
+    padding: 20px;
+    min-width: 1000px;
 }
 
 .header {
-  font-size: 32px;
-  font-weight: 500;
-  color: darkgray;
-  margin-bottom: 60px;
+    font-size: 32px;
+    font-weight: 500;
+    color: darkgray;
+    margin-bottom: 60px;
 }
 
 .list {
-  display: flex;
-  flex-flow: column;
+    display: flex;
+    flex-flow: column;
 }

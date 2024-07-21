@@ -25,10 +25,6 @@
     animation: aniUp 0.5s forwards;
 }
 
-.initialList {
-    display: none;
-}
-
 .listOpen {
     padding: 8px 0 0 20px;
     display: flex;
@@ -57,13 +53,21 @@ svg {
 }
 
 @keyframes ani {
-    0% {max-height: 0;}
-    100% {max-height: 100vw;}
+    0% {
+        max-height: 0;
+    }
+    100% {
+        max-height: 100vw;
+    }
 }
 
 @keyframes aniUp {
-    0% {max-height: 50vw;}
-    100% {max-height: 0;}
+    0% {
+        max-height: 50vw;
+    }
+    100% {
+        max-height: 0;
+    }
 }
 
 .noData {
