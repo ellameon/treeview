@@ -27,7 +27,7 @@ export const TreeViewElement = ({element}: Props) => {
         </div>
       </div>
       <div className={`${element.isOpen ? styles.listOpen : styles.list}`}>
-        {element.children && element.children.length
+        {element.children && element.children.length > 0
           ?
           element.children.map(child => (
             <TreeViewElement key={child.id} element={child}/>

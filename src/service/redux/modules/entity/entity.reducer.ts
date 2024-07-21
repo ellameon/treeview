@@ -7,13 +7,17 @@ const initialState: EntityStore = {entities: []}
 export const entityReducer = (state = initialState, action: EntityAction): EntityStore => {
   switch (action.type) {
     case SET_ENTITY_TO_STORE: {
-      return {
+      const resultStore = {
         entities: action.payload.map(element => createEntityStoreElement(element))
       }
+      localStorage.setItem("currentInterface", JSON.stringify(resultStore))
+      return resultStore
     }
 
     case TOGGLE_ENTITY_IS_OPEN: {
-      return  toggleIsElementOpen(state, action.id)
+      const resultStore = toggleIsElementOpen(state, action.id)
+      localStorage.setItem("currentInterface", JSON.stringify(resultStore))
+      return resultStore
     }
 
     default:
