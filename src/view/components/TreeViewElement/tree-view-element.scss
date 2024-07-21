@@ -12,7 +12,7 @@
     border: #BFBFC0 1px solid;
     width: 720px;
 
-    :hover {
+    &:hover {
         box-shadow: 0 0 30px 0 rgba(34, 36, 40, 0.10);
     }
 }
@@ -22,7 +22,7 @@
     display: flex;
     flex-flow: column;
     overflow: hidden;
-    animation: aniUp 2s forwards;
+    animation: aniUp 0.5s forwards;
 }
 
 .tree-view-element-listInitial {
@@ -65,13 +65,13 @@
         max-height: 0;
     }
     100% {
-        max-height: 1000px;
+        max-height: 100vh;
     }
 }
 
 @keyframes aniUp {
     0% {
-        max-height: 1000px;
+        max-height: 100vh;
     }
     100% {
         max-height: 0;
