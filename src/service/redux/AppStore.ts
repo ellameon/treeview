@@ -1,5 +1,6 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers } from "redux";
 import { entityReducer } from "./modules/entity/entity.reducer";
+import { configureStore } from "@reduxjs/toolkit";
 
 export const rootReducer = combineReducers({
   entity: entityReducer,
@@ -7,6 +8,8 @@ export const rootReducer = combineReducers({
 
 export type AppState = ReturnType<typeof rootReducer>
 
-const store = createStore(rootReducer)
+const appStore = configureStore({
+  reducer: rootReducer
+})
 
-export default store
+export default appStore

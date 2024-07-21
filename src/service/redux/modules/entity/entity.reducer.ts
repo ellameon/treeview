@@ -7,15 +7,20 @@ import {
 import { createEntityStoreElement, toggleIsElementOpen } from "../../utils";
 import { EntityStore } from "../../../../types";
 
-const initialState: EntityStore = {entities: []}
+const initialState: EntityStore = {
+  entities: [],
+  isError: undefined,
+  isLoading: true
+}
 
 export const entityReducer = (state = initialState, action: EntityAction): EntityStore => {
   switch (action.type) {
     case SET_ENTITY_TO_STORE: {
       const resultStore = {
+        ...state,
         entities: action.payload.map(element => createEntityStoreElement(element))
       }
-      localStorage.setItem("currentInterface", JSON.stringify(resultStore))
+      localStorage.setItem("treeViewElements", JSON.stringify(resultStore))
       return resultStore
     }
 
@@ -25,8 +30,22 @@ export const entityReducer = (state = initialState, action: EntityAction): Entit
 
     case TOGGLE_ENTITY_IS_OPEN: {
       const resultStore = toggleIsElementOpen(state, action.id)
-      localStorage.setItem("currentInterface", JSON.stringify(resultStore))
+      localStorage.setItem("treeViewElements", JSON.stringify(resultStore))
       return resultStore
+    }
+
+    case "treeview/entity/TOGGLE_ENTITY_IS_ERROR": {
+      return {
+        ...state,
+        isError: action.payload
+      }
+    }
+
+    case "treeview/entity/TOGGLE_ENTITY_IS_LOADING": {
+      return {
+        ...state,
+        isLoading: action.payload
+      }
     }
 
     default:

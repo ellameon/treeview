@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { EntityStoreElement } from "../../../types";
+import { StoreElement } from "../../../types";
 import { ReactComponent as Plus } from "../../../assets/icons/plus.svg";
 import { useToggleElementIsOpen } from "../../../service";
 import styles from "./index.module.css";
 
 type Props = {
-  element: EntityStoreElement;
+  element: StoreElement;
 };
 
 export const TreeViewElement = ({element}: Props) => {
   const {toggleElementIsOpen} = useToggleElementIsOpen();
-  const storageInterface = localStorage.getItem("currentInterface")
+  const storageInterface = localStorage.getItem("treeViewElements")
   const [isOpenAllowed, setIsOpenAllowed] = useState(storageInterface !== null)
 
   const onClickPlus = (id: number) => {

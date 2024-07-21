@@ -1,0 +1,41 @@
+
+.root {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  background: white;
+  padding: 24px 40px;
+  border-radius: 10px;
+
+  width: 358px;
+}
+
+.text {
+  margin: 0px;
+}
+
+h5 {
+  color: gray;
+}
+
+.btn {
+  border: none;
+  background: white;
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  svg {
+    transition: transform 0.5s;
+  }
+}
+
+.btn:hover {
+  svg {
+    transform: rotate(-90deg);
+    transition-duration: 0.5s;
+  }
+}

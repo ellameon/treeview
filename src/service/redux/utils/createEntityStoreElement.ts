@@ -1,6 +1,6 @@
-import { EntityDTOElement, EntityStoreElement } from "../../../types";
+import { DTOElement, StoreElement } from "../../../types";
 
-export function createEntityStoreElement(entityElement: EntityDTOElement): EntityStoreElement {
+export function createEntityStoreElement(entityElement: DTOElement): StoreElement {
   return {
     id: Math.random(),
     isOpen: false,

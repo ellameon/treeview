@@ -1,6 +1,6 @@
-import { EntityDTOElement, EntityStoreElement } from "../../../types";
+import { DTOElement, StoreElement } from "../../../types";
 
-export function createLocalStorageEntityDTO (element: EntityStoreElement): EntityDTOElement {
+export function createLocalStorageEntityDTO(element: StoreElement): DTOElement {
 
   if (element.children) {
     return {

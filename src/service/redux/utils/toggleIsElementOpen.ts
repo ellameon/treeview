@@ -1,12 +1,12 @@
-import { EntityStore, EntityStoreElement } from "../../../types";
+import { EntityStore, StoreElement } from "../../../types";
 
 export function toggleIsElementOpen(state: EntityStore, id: number) {
-  const toggleIsOpen = (entity: EntityStoreElement): EntityStoreElement => {
+  const toggleIsOpen = (entity: StoreElement): StoreElement => {
     if (entity.id === id) {
       return {
         ...entity,
         isOpen: !entity.isOpen,
-        children: entity.children ? entity.children.map(toggleIsOpen) : []
+        children: entity.children && entity.children.map(toggleIsOpen)
       }
     } else if (entity.children) {
       return {

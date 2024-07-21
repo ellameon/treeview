@@ -1,4 +1,4 @@
-import { EntityDTO } from "../types";
+import { DTOElementArray } from "../types";
 
 const mokData = [
   {
@@ -33,13 +33,14 @@ const mokData = [
   }
 ]
 
-export async function getEntity(): Promise<EntityDTO> {
-  const entities: EntityDTO = []
+export async function getEntity(): Promise<DTOElementArray> {
+  const entities: DTOElementArray = []
 
   //тут получаем данные с бека, но в данном случае есть моковые данные
 
   const resultArray = entities.concat(mokData)
 
+  await new Promise(resolve => setTimeout(resolve, 100))
 
   return resultArray
 }
