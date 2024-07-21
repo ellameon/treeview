@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StoreElement } from "../../../types";
 import { ReactComponent as Plus } from "../../../assets/icons/plus.svg";
 import { useToggleElementIsOpen } from "../../../service";
-import styles from "./index.module.css";
+import  "./tree-view-element.scss";
 
 type Props = {
   element: StoreElement;
@@ -20,27 +20,27 @@ export const TreeViewElement = ({element}: Props) => {
   // сделано для правильной работы анимации закрытия списка
   setTimeout(() => {
     setIsOpenAllowed(true)
-  }, isOpenAllowed ? 0 : 500)
+  }, isOpenAllowed ? 0 : 1000)
 
   return (
-    <div className={styles.root}>
-      <div className={styles.content}>
-        <div className={styles.elementName}>{element.name}</div>
+    <div className={"tree-view-element-root"}>
+      <div className={"tree-view-element-content"}>
+        <div className={"tree-view-element-elementName"}>{element.name}</div>
         <div
           onClick={() => onClickPlus(element.id)}
-          className={`${styles.plus} ${element.isOpen ? styles.rotated : ""}`}
+          className={`${"tree-view-element-plus"} ${element.isOpen ? "tree-view-element-rotated" : ""}`}
         >
           <Plus/>
         </div>
       </div>
-      <div className={`${element.isOpen ? styles.listOpen : (isOpenAllowed ? styles.listInitial : styles.list)}`}>
+      <div className={`${element.isOpen ? "tree-view-element-listOpen" : (isOpenAllowed ? "tree-view-element-listInitial" : "tree-view-element-list")}`}>
         {isOpenAllowed &&
           <>
             {element.children && element.children.length > 0
               ? element.children.map(child => (
                 <TreeViewElement key={child.id} element={child}/>
               ))
-              : <div className={styles.noData}>
+              : <div className={"tree-view-element-noData"}>
                 Нет вложенных элементов
               </div>
             }

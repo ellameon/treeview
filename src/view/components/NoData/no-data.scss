@@ -1,41 +1,37 @@
-
-.root {
+.no-data-root {
   display: flex;
   justify-content: center;
 }
 
-.wrapper {
+.no-data-wrapper {
   background: white;
   padding: 24px 40px;
   border-radius: 10px;
-
+  display: flex;
+  align-items: center;
   width: 358px;
 }
 
-.text {
+.no-data-text {
   margin: 0px;
-}
-
-h5 {
   color: gray;
 }
 
-.btn {
+.no-data-btn {
   border: none;
   background: white;
   display: flex;
   align-items: center;
-
   cursor: pointer;
 
   svg {
     transition: transform 0.5s;
   }
-}
 
-.btn:hover {
-  svg {
-    transform: rotate(-90deg);
-    transition-duration: 0.5s;
+  :hover {
+    svg {
+      transform: rotate(-90deg);
+      transition-duration: 0.5s;
+    }
   }
 }

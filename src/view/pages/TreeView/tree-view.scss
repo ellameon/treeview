@@ -1,23 +1,22 @@
-.root {
+.tree-view-root {
     display: flex;
     justify-content: center;
     padding: 80px;
-    height: 100vh;
 }
 
-.content {
+.tree-view-content {
     padding: 20px;
     min-width: 1000px;
 }
 
-.header {
+.tree-view-header {
     font-size: 32px;
     font-weight: 500;
     color: darkgray;
     margin-bottom: 60px;
 }
 
-.list {
+.tree-view-list {
     display: flex;
     flex-flow: column;
 }
