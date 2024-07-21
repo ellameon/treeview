@@ -25,6 +25,14 @@
     animation: aniUp 0.5s forwards;
 }
 
+.listInitial {
+    padding: 8px 0 0 20px;
+    display: flex;
+    flex-flow: column;
+    overflow: hidden;
+    height: 0;
+}
+
 .listOpen {
     padding: 8px 0 0 20px;
     display: flex;

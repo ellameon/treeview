@@ -10,7 +10,8 @@ type Props = {
 
 export const TreeViewElement = ({element}: Props) => {
   const {toggleElementIsOpen} = useToggleElementIsOpen();
-  const [isOpenAllowed, setIsOpenAllowed] = useState(false)
+  const storageInterface = localStorage.getItem("currentInterface")
+  const [isOpenAllowed, setIsOpenAllowed] = useState(storageInterface !== null)
 
   const onClickPlus = (id: number) => {
     toggleElementIsOpen(id);
@@ -19,7 +20,7 @@ export const TreeViewElement = ({element}: Props) => {
   // сделано для правильной работы анимации закрытия списка
   setTimeout(() => {
     setIsOpenAllowed(true)
-  }, 500)
+  }, isOpenAllowed ? 0 : 500)
 
   return (
     <div className={styles.root}>
@@ -32,7 +33,7 @@ export const TreeViewElement = ({element}: Props) => {
           <Plus/>
         </div>
       </div>
-      <div className={`${element.isOpen ? styles.listOpen : styles.list}`}>
+      <div className={`${element.isOpen ? styles.listOpen : (isOpenAllowed ? styles.listInitial : styles.list)}`}>
         {isOpenAllowed &&
           <>
             {element.children && element.children.length > 0

@@ -1,4 +1,9 @@
-import { EntityAction, SET_ENTITY_TO_STORE, TOGGLE_ENTITY_IS_OPEN } from "./entity.action";
+import {
+  EntityAction,
+  SET_ENTITY_TO_STORE,
+  SET_ENTITY_TO_STORE_FROM_LOCAL_STORAGE,
+  TOGGLE_ENTITY_IS_OPEN
+} from "./entity.action";
 import { createEntityStoreElement, toggleIsElementOpen } from "../../utils";
 import { EntityStore } from "../../../../types";
 
@@ -12,6 +17,10 @@ export const entityReducer = (state = initialState, action: EntityAction): Entit
       }
       localStorage.setItem("currentInterface", JSON.stringify(resultStore))
       return resultStore
+    }
+
+    case SET_ENTITY_TO_STORE_FROM_LOCAL_STORAGE: {
+      return action.payload
     }
 
     case TOGGLE_ENTITY_IS_OPEN: {
