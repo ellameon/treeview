@@ -22,7 +22,11 @@
     display: flex;
     flex-flow: column;
     overflow: hidden;
-    animation: aniUp 1s forwards;
+    animation: aniUp 0.5s forwards;
+}
+
+.initialList {
+    display: none;
 }
 
 .listOpen {
